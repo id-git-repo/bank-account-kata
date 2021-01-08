@@ -54,18 +54,14 @@ public class AccountTest {
         }
 
         @Test
-        public void can_make_three_deposit_money_giving_allowed_amounts() throws AmountNotAllowedException {
+        public void can_make_three_deposit_money_giving_allowed_amounts() {
             Account account = Account.with(Money.of(10));
 
             Money firstAmount = Money.of(5);
             account.depositMoney(firstAmount);
 
-            Assertions.assertEquals(Money.of(15), account.getBalance());
-
             Money secondAmount = Money.of(10);
             account.depositMoney(secondAmount);
-
-            Assertions.assertEquals(Money.of(25), account.getBalance());
 
             Money thirdAmount = Money.of(4);
             account.depositMoney(thirdAmount);
