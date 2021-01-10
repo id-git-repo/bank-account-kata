@@ -7,10 +7,19 @@ public class MoneyTest {
 
     @Test
     public void add_money_amount() {
-        Money money = Money.of(10);
+        Money money = Money.of(11);
 
         Money sum = money.add(Money.of(4.5));
 
         Assertions.assertEquals(Money.of(14.5), sum);
+    }
+
+    @Test
+    public void subtract_money_amount() {
+        Money money = Money.of(10);
+
+        Money result = money.subtract(Money.of(5));
+
+        Assertions.assertEquals(Money.of(5), result);
     }
 }

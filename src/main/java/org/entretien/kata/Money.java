@@ -27,7 +27,7 @@ public class Money {
 
     @Override
     public String toString() {
-        return amount + "€";
+        return amount + Currency.EURO.getSymbol();
     }
 
     @Override
