@@ -17,6 +17,19 @@ public class Money {
         return new Money(amount + money.amount);
     }
 
+    public Money subtract(Money money) {
+        return new Money(amount - money.amount);
+    }
+
+    public boolean isLessThan(Money money) {
+        return amount < money.amount;
+    }
+
+    @Override
+    public String toString() {
+        return amount + "€";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,7 +43,4 @@ public class Money {
         return Objects.hash(amount);
     }
 
-    public boolean isLessThan(Money money) {
-        return amount < money.amount;
-    }
 }
