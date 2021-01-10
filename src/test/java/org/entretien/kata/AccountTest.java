@@ -45,8 +45,6 @@ public class AccountTest {
             Money firstAmount = Money.of(1);
             account.depositMoney(firstAmount);
 
-            Assertions.assertEquals(Money.of(11), account.getBalance());
-
             Money secondAmount = Money.of(5);
             account.depositMoney(secondAmount);
 
