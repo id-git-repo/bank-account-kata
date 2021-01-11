@@ -7,7 +7,7 @@ public class MoneyTest {
 
     @Test
     public void add_money_amount() {
-        Money money = Money.of(11);
+        Money money = Money.of(10);
 
         Money sum = money.add(Money.of(4.5));
 
