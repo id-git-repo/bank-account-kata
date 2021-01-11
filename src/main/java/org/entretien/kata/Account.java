@@ -26,7 +26,7 @@ public class Account {
         return new Account(operations);
     }
 
-    public void depositMoney(Money money) throws AmountNotAllowedException {
+    public void depositMoney(Money money) {
         if (money.isLessThan(Money.of(MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT)))
             throw new AmountNotAllowedException("Can not deposit money less than " + MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT + ".");
 
