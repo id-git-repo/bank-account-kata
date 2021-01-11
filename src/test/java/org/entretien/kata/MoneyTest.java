@@ -14,9 +14,4 @@ public class MoneyTest {
         assertThrows(AmountNotAllowedException.class, () -> Money.of(-1));
     }
 
-    @Test
-    public void can_create_money_with_allowed_amount() {
-        Assertions.assertDoesNotThrow(() -> Money.of(1));
-    }
-
 }

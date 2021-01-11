@@ -4,33 +4,20 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Operation {
-    private final OperationType type;
+    private final TransactionType type;
     private final LocalDateTime date;
     private final Money amount;
     private final Balance balance;
 
-    private Operation(OperationType type, LocalDateTime date, Money amount, Balance balance) {
+    private Operation(TransactionType type, LocalDateTime date, Money amount, Balance balance) {
         this.type = type;
         this.date = date;
         this.amount = amount;
         this.balance = balance;
     }
 
-    public static Operation of(OperationType type, Money amount, Balance balance) {
-        return new Operation(
-                type,
-                LocalDateTime.now(),
-                amount,
-                balance
-        );
-    }
-
-    public int compareByDate(Operation operation) {
-        return date.compareTo(operation.date);
-    }
-
-    public Balance getBalance() {
-        return balance;
+    public static Operation of(TransactionType type, LocalDateTime date, Money amount, Balance balance) {
+        return new Operation(type, date, amount, balance);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class Amount {
 
     @Override
     public String toString() {
-        return amount + Currency.EURO.toString();
+        return amount + Currency.EURO.getSymbol();
     }
 
     @Override

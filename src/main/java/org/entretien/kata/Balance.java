@@ -22,4 +22,11 @@ public class Balance extends Amount {
         return of(amount - money.amount);
     }
 
+    public Balance negate() {
+        return of(-amount);
+    }
+
+    public Balance add(Balance balance) {
+        return of(amount + balance.amount);
+    }
 }
