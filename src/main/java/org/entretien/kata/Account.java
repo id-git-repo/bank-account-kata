@@ -29,7 +29,7 @@ public class Account {
     public static Account with(Money money) {
         List<Operation> operations = new ArrayList<>();
 
-        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, money, Balance.of(money)));
+        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, money, Balance.fromMoney(money)));
 
         return new Account(operations);
     }
