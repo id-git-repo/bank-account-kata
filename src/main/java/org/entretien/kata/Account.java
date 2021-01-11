@@ -18,6 +18,14 @@ public class Account {
         this.operations = operations;
     }
 
+    public static Account newAccount() {
+        List<Operation> operations = new ArrayList<>();
+
+        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, Money.of(0), Money.of(0)));
+
+        return new Account(operations);
+    }
+
     public static Account with(Money money) {
         List<Operation> operations = new ArrayList<>();
 

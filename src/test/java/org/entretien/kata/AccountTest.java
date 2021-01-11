@@ -13,6 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AccountTest {
 
     @Test
+    public void create_account_without_initial_money_amount() {
+        Account account = Account.newAccount();
+
+        assertEquals(Money.of(0), account.getBalance());
+    }
+
+    @Test
     public void create_account_with_initial_money_amount() {
         Account account = Account.with(Money.of(10.5));
 
