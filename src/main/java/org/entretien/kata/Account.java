@@ -21,7 +21,7 @@ public class Account {
     public static Account newAccount() {
         List<Operation> operations = new ArrayList<>();
 
-        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, Money.of(0), Money.of(0)));
+        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, Money.of(0), Balance.of(0)));
 
         return new Account(operations);
     }
@@ -29,7 +29,7 @@ public class Account {
     public static Account with(Money money) {
         List<Operation> operations = new ArrayList<>();
 
-        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, money, money));
+        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, money, Balance.of(money)));
 
         return new Account(operations);
     }
@@ -44,12 +44,12 @@ public class Account {
     }
 
     public void withdrawMoney(Money money) {
-        if (getBalance().isLessThan(Money.of(OVERDRAFT_THRESHOLD_MONEY_AMOUNT)))
+        if (getBalance().isLessThan(Balance.of(OVERDRAFT_THRESHOLD_MONEY_AMOUNT)))
             throw new OverdraftIsAlreadyUsedException("Operation refused. Overdraft is already used.");
 
-        Money newBalance = getBalance().subtract(money);
+        Balance newBalance = getBalance().subtract(money);
 
-        if (newBalance.isLessThan(Money.of(OVERDRAFT_LIMIT_MONEY_AMOUNT)))
+        if (newBalance.isLessThan(Balance.of(OVERDRAFT_LIMIT_MONEY_AMOUNT)))
             throw new OverdraftLimitExceededException("Operation refused. Overdraft exceeded. Limit is " + OVERDRAFT_LIMIT_MONEY_AMOUNT + ".");
 
         saveOperation(
@@ -57,7 +57,7 @@ public class Account {
         );
     }
 
-    public Money getBalance() {
+    public Balance getBalance() {
         return operations.get(operations.size() - 1).getBalance();
     }
 

@@ -7,16 +7,16 @@ public class Operation {
     private final OperationType type;
     private final LocalDate date;
     private final Money amount;
-    private final Money balance;
+    private final Balance balance;
 
-    private Operation(OperationType type, LocalDate date, Money amount, Money balance) {
+    private Operation(OperationType type, LocalDate date, Money amount, Balance balance) {
         this.type = type;
         this.date = date;
         this.amount = amount;
         this.balance = balance;
     }
 
-    public static Operation of(OperationType type, Money amount, Money balance) {
+    public static Operation of(OperationType type, Money amount, Balance balance) {
         return new Operation(
                 type,
                 LocalDate.now(),
@@ -25,7 +25,7 @@ public class Operation {
         );
     }
 
-    public Money getBalance() {
+    public Balance getBalance() {
         return balance;
     }
 
@@ -34,8 +34,8 @@ public class Operation {
         return "Operation{" +
                 "type=" + type.getName() +
                 ", date=" + date +
-                ", amount=" + amount +
-                ", balance=" + balance +
+                ", amount=" + amount.toString() +
+                ", balance=" + balance.toString() +
                 '}';
     }
 
