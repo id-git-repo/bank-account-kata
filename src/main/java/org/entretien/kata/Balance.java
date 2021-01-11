@@ -10,7 +10,7 @@ public class Balance extends Amount {
         return new Balance(amount);
     }
 
-    public static Balance fromMoney(Money amount) {
+    public static Balance of(Money amount) {
         return new Balance(amount.amount);
     }
 
@@ -19,7 +19,7 @@ public class Balance extends Amount {
     }
 
     public Balance subtract(Money money) {
-        return  of(amount- money.amount);
+        return of(amount - money.amount);
     }
 
 }

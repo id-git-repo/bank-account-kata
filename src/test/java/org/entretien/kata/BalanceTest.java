@@ -14,7 +14,7 @@ public class BalanceTest {
     public void can_create_balance_from_money() {
         Money money = Money.of(10);
 
-        Assertions.assertEquals(Balance.of(10), Balance.fromMoney(money));
+        Assertions.assertEquals(Balance.of(10), Balance.of(money));
     }
 
     @Test

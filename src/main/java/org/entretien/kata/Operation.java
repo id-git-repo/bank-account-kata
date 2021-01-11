@@ -1,15 +1,15 @@
 package org.entretien.kata;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Operation {
     private final OperationType type;
-    private final LocalDate date;
+    private final LocalDateTime date;
     private final Money amount;
     private final Balance balance;
 
-    private Operation(OperationType type, LocalDate date, Money amount, Balance balance) {
+    private Operation(OperationType type, LocalDateTime date, Money amount, Balance balance) {
         this.type = type;
         this.date = date;
         this.amount = amount;
@@ -19,10 +19,14 @@ public class Operation {
     public static Operation of(OperationType type, Money amount, Balance balance) {
         return new Operation(
                 type,
-                LocalDate.now(),
+                LocalDateTime.now(),
                 amount,
                 balance
         );
+    }
+
+    public int compareByDate(Operation operation) {
+        return date.compareTo(operation.date);
     }
 
     public Balance getBalance() {
@@ -44,7 +48,7 @@ public class Operation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Operation operation = (Operation) o;
-        return type == operation.type && Objects.equals(date, operation.date) && Objects.equals(amount, operation.amount) && Objects.equals(balance, operation.balance);
+        return type == operation.type && Objects.equals(date.toLocalDate(), operation.date.toLocalDate()) && Objects.equals(amount, operation.amount) && Objects.equals(balance, operation.balance);
     }
 
     @Override

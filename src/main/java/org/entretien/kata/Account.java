@@ -21,7 +21,9 @@ public class Account {
     public static Account newAccount() {
         List<Operation> operations = new ArrayList<>();
 
-        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, Money.of(0), Balance.of(0)));
+        operations.add(
+                Operation.of(OperationType.ACCOUNT_CREATION, Money.of(0), Balance.of(0))
+        );
 
         return new Account(operations);
     }
@@ -29,7 +31,9 @@ public class Account {
     public static Account with(Money money) {
         List<Operation> operations = new ArrayList<>();
 
-        operations.add(Operation.of(OperationType.ACCOUNT_CREATION, money, Balance.fromMoney(money)));
+        operations.add(
+                Operation.of(OperationType.ACCOUNT_CREATION, money, Balance.of(money))
+        );
 
         return new Account(operations);
     }
@@ -58,7 +62,7 @@ public class Account {
     }
 
     public Balance getBalance() {
-        return operations.get(operations.size() - 1).getBalance();
+        return operations.get(operations.size() -1) .getBalance();
     }
 
     public List<Operation> getOperations() {
@@ -66,7 +70,8 @@ public class Account {
     }
 
     private void saveOperation(Operation operation) {
-        operations.add(operation);
+        synchronized (Account.class) {
+            operations.add(operation);
+        }
     }
-
 }
