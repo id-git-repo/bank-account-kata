@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Account {
-    public static final Money MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT = Money.of(0.01);
-    private static final Money OVERDRAFT_THRESHOLD_MONEY_AMOUNT = Money.of(0);
-    private static final Money OVERDRAFT_LIMIT_MONEY_AMOUNT = Money.of(-50);
+    public static final double MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT = 0.01;
+    private static final double OVERDRAFT_THRESHOLD_MONEY_AMOUNT = 0;
+    private static final double OVERDRAFT_LIMIT_MONEY_AMOUNT = -50;
 
     private final List<Operation> operations;
 
@@ -27,7 +27,7 @@ public class Account {
     }
 
     public void depositMoney(Money money) throws AmountNotAllowedException {
-        if (money.isLessThan(MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT))
+        if (money.isLessThan(Money.of(MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT)))
             throw new AmountNotAllowedException("Can not deposit money less than " + MINIMUM_ALLOWED_DEPOSIT_MONEY_AMOUNT + ".");
 
         saveOperation(
@@ -36,12 +36,12 @@ public class Account {
     }
 
     public void withdrawMoney(Money money) {
-        if (getBalance().isLessThan(OVERDRAFT_THRESHOLD_MONEY_AMOUNT))
+        if (getBalance().isLessThan(Money.of(OVERDRAFT_THRESHOLD_MONEY_AMOUNT)))
             throw new OverdraftIsAlreadyUsedException("Operation refused. Overdraft is already used.");
 
         Money newBalance = getBalance().subtract(money);
 
-        if (newBalance.isLessThan(OVERDRAFT_LIMIT_MONEY_AMOUNT))
+        if (newBalance.isLessThan(Money.of(OVERDRAFT_LIMIT_MONEY_AMOUNT)))
             throw new OverdraftLimitExceededException("Operation refused. Overdraft exceeded. Limit is " + OVERDRAFT_LIMIT_MONEY_AMOUNT + ".");
 
         saveOperation(
