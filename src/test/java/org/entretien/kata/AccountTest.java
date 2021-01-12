@@ -1,7 +1,6 @@
 package org.entretien.kata;
 
 import org.entretien.kata.exceptions.AmountNotAllowedException;
-import org.entretien.kata.exceptions.OverdraftIsAlreadyUsedException;
 import org.entretien.kata.exceptions.OverdraftLimitExceededException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

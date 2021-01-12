@@ -3,6 +3,13 @@ package org.entretien.kata;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.plaf.IconUIResource;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class BalanceTest {
 
     @Test
@@ -34,4 +41,23 @@ public class BalanceTest {
 
         Assertions.assertEquals(Balance.of(10 - 5), result);
     }
+
+    @Test
+    public void can_add_balance_to_balance() {
+        Balance balance = Balance.of(10);
+
+        Balance result = balance.add(Balance.of(5));
+
+        Assertions.assertEquals(Balance.of(10 + 5), result);
+    }
+
+    @Test
+    public void calculate_balance_negation() {
+        Balance balance = Balance.of(10);
+
+        Balance result = balance.negate();
+
+        Assertions.assertEquals(Balance.of(-10), result);
+    }
+
 }

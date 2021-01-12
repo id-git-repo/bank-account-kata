@@ -2,7 +2,7 @@ package org.entretien.kata;
 
 import java.util.Objects;
 
-public class Amount {
+public abstract class Amount {
     protected double amount;
 
     protected Amount(double amount) {
