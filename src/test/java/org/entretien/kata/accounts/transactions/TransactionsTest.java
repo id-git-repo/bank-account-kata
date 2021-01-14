@@ -1,10 +1,7 @@
-package org.entretien.kata.transactions;
+package org.entretien.kata.accounts.transactions;
 
-import org.entretien.kata.amounts.Balance;
-import org.entretien.kata.amounts.Money;
-import org.entretien.kata.transactions.Transaction;
-import org.entretien.kata.transactions.TransactionType;
-import org.entretien.kata.transactions.Transactions;
+import org.entretien.kata.accounts.amounts.Balance;
+import org.entretien.kata.accounts.amounts.Money;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package org.entretien.kata.amounts;
+package org.entretien.kata.accounts.amounts;
 
 import java.util.Objects;
 

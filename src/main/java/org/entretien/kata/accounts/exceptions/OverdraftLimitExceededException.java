@@ -1,4 +1,4 @@
-package org.entretien.kata.exceptions;
+package org.entretien.kata.accounts.exceptions;
 
 public class OverdraftLimitExceededException extends RuntimeException {
     public OverdraftLimitExceededException(String errorMessage) {

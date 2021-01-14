@@ -1,7 +1,5 @@
-package org.entretien.kata.amounts;
+package org.entretien.kata.accounts.amounts;
 
-import org.entretien.kata.amounts.Balance;
-import org.entretien.kata.amounts.Money;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

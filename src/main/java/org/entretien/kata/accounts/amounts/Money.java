@@ -1,6 +1,6 @@
-package org.entretien.kata.amounts;
+package org.entretien.kata.accounts.amounts;
 
-import org.entretien.kata.exceptions.AmountNotAllowedException;
+import org.entretien.kata.accounts.exceptions.AmountNotAllowedException;
 
 public class Money extends Amount {
 

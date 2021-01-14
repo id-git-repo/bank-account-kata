@@ -1,7 +1,7 @@
-package org.entretien.kata.transactions;
+package org.entretien.kata.accounts.transactions;
 
-import org.entretien.kata.amounts.Balance;
-import org.entretien.kata.amounts.Money;
+import org.entretien.kata.accounts.amounts.Balance;
+import org.entretien.kata.accounts.amounts.Money;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

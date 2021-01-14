@@ -1,16 +1,16 @@
-package org.entretien.kata;
+package org.entretien.kata.accounts;
 
-import org.entretien.kata.amounts.Balance;
-import org.entretien.kata.amounts.Money;
-import org.entretien.kata.exceptions.AmountNotAllowedException;
-import org.entretien.kata.exceptions.OverdraftLimitExceededException;
-import org.entretien.kata.transactions.Operation;
-import org.entretien.kata.transactions.Transaction;
-import org.entretien.kata.transactions.TransactionType;
+import org.entretien.kata.accounts.Account;
+import org.entretien.kata.accounts.amounts.Balance;
+import org.entretien.kata.accounts.amounts.Money;
+import org.entretien.kata.accounts.exceptions.AmountNotAllowedException;
+import org.entretien.kata.accounts.exceptions.OverdraftLimitExceededException;
+import org.entretien.kata.accounts.transactions.Operation;
+import org.entretien.kata.accounts.transactions.Transaction;
+import org.entretien.kata.accounts.transactions.TransactionType;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
