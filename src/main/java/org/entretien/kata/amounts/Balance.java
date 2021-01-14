@@ -1,4 +1,4 @@
-package org.entretien.kata;
+package org.entretien.kata.amounts;
 
 public class Balance extends Amount {
 
@@ -10,8 +10,8 @@ public class Balance extends Amount {
         return new Balance(amount);
     }
 
-    public static Balance of(Money amount) {
-        return new Balance(amount.amount);
+    public static Balance of(Money money) {
+        return new Balance(money.amount);
     }
 
     public Balance add(Money money) {

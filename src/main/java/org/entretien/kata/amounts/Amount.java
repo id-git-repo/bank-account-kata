@@ -1,9 +1,9 @@
-package org.entretien.kata;
+package org.entretien.kata.amounts;
 
 import java.util.Objects;
 
 public abstract class Amount {
-    protected double amount;
+    protected final double amount;
 
     protected Amount(double amount) {
         this.amount = amount;

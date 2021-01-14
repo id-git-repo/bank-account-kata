@@ -1,4 +1,4 @@
-package org.entretien.kata;
+package org.entretien.kata.amounts;
 
 import org.entretien.kata.exceptions.AmountNotAllowedException;
 

@@ -1,14 +1,9 @@
-package org.entretien.kata;
+package org.entretien.kata.amounts;
 
+import org.entretien.kata.amounts.Balance;
+import org.entretien.kata.amounts.Money;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import javax.swing.plaf.IconUIResource;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BalanceTest {
 

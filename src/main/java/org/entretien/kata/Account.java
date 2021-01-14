@@ -1,7 +1,13 @@
 package org.entretien.kata;
 
+import org.entretien.kata.amounts.Balance;
+import org.entretien.kata.amounts.Money;
 import org.entretien.kata.exceptions.AmountNotAllowedException;
 import org.entretien.kata.exceptions.OverdraftLimitExceededException;
+import org.entretien.kata.transactions.Operation;
+import org.entretien.kata.transactions.Transaction;
+import org.entretien.kata.transactions.TransactionType;
+import org.entretien.kata.transactions.Transactions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +64,8 @@ public class Account {
         List<Operation> operations = new ArrayList<>();
         Balance balance = Balance.of(0);
         for (Transaction transaction : transactions.sortByDate()) {
-            balance = balance.add(transaction.initBalance());
-            operations.add(transaction.toOperation(balance));
+            balance = balance.add(transaction.getAmountAsBalance());
+            operations.add(Operation.of(transaction, balance));
         }
         return operations;
     }

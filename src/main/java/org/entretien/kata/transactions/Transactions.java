@@ -1,6 +1,7 @@
-package org.entretien.kata;
+package org.entretien.kata.transactions;
 
-import java.util.ArrayList;
+import org.entretien.kata.amounts.Balance;
+
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -23,7 +24,7 @@ public class Transactions {
 
     public Balance calculateBalance() {
         return transactions.stream()
-                .map(transaction -> transaction.initBalance())
+                .map(transaction -> transaction.getAmountAsBalance())
                 .reduce(Balance.of(0), (balance1, balance2) -> balance1.add(balance2));
     }
 

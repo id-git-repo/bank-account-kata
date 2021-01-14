@@ -1,7 +1,12 @@
 package org.entretien.kata;
 
+import org.entretien.kata.amounts.Balance;
+import org.entretien.kata.amounts.Money;
 import org.entretien.kata.exceptions.AmountNotAllowedException;
 import org.entretien.kata.exceptions.OverdraftLimitExceededException;
+import org.entretien.kata.transactions.Operation;
+import org.entretien.kata.transactions.Transaction;
+import org.entretien.kata.transactions.TransactionType;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -134,9 +139,10 @@ public class AccountTest {
             assertIterableEquals(
                     Arrays.asList(
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(10),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(10)
+                                    ),
                                     Balance.of(10))
                     ),
                     account.getOperations()
@@ -152,14 +158,16 @@ public class AccountTest {
             assertIterableEquals(
                     Arrays.asList(
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(10),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(10)
+                                    ),
                                     Balance.of(10)),
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(5),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(5)
+                                    ),
                                     Balance.of(15))
                     ),
                     account.getOperations()
@@ -175,15 +183,17 @@ public class AccountTest {
             assertIterableEquals(
                     Arrays.asList(
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(10),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(10)
+                                    ),
                                     Balance.of(10)
                             ),
                             Operation.of(
-                                    TransactionType.WITHDRAW_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(5),
+                                    Transaction.of(
+                                            TransactionType.WITHDRAW_MONEY,
+                                            Money.of(5)
+                                    ),
                                     Balance.of(5))
                     ),
                     account.getOperations()
@@ -203,27 +213,31 @@ public class AccountTest {
             assertIterableEquals(
                     Arrays.asList(
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(10),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(10)
+                                    ),
                                     Balance.of(10)
                             ),
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(7),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(7)
+                                    ),
                                     Balance.of(17)
                             ),
                             Operation.of(
-                                    TransactionType.WITHDRAW_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(2),
+                                    Transaction.of(
+                                            TransactionType.WITHDRAW_MONEY,
+                                            Money.of(2)
+                                    ),
                                     Balance.of(15)
                             ),
                             Operation.of(
-                                    TransactionType.DEPOSIT_MONEY,
-                                    LocalDateTime.now(),
-                                    Money.of(5),
+                                    Transaction.of(
+                                            TransactionType.DEPOSIT_MONEY,
+                                            Money.of(5)
+                                    ),
                                     Balance.of(20)
                             )
                     ),

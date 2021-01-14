@@ -1,23 +1,21 @@
-package org.entretien.kata;
+package org.entretien.kata.transactions;
+
+import org.entretien.kata.amounts.Balance;
+import org.entretien.kata.amounts.Money;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Operation {
-    private final TransactionType type;
-    private final LocalDateTime date;
-    private final Money amount;
+public class Operation extends Transaction {
     private final Balance balance;
 
     private Operation(TransactionType type, LocalDateTime date, Money amount, Balance balance) {
-        this.type = type;
-        this.date = date;
-        this.amount = amount;
+        super(type, date, amount);
         this.balance = balance;
     }
 
-    public static Operation of(TransactionType type, LocalDateTime date, Money amount, Balance balance) {
-        return new Operation(type, date, amount, balance);
+    public static Operation of(Transaction transaction, Balance balance) {
+        return new Operation(transaction.type, transaction.date, transaction.amount, balance);
     }
 
     @Override
@@ -34,13 +32,13 @@ public class Operation {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
         Operation operation = (Operation) o;
-        return type == operation.type && Objects.equals(date.toLocalDate(), operation.date.toLocalDate()) && Objects.equals(amount, operation.amount) && Objects.equals(balance, operation.balance);
+        return Objects.equals(balance, operation.balance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, date, amount, balance);
+        return Objects.hash(super.hashCode(), balance);
     }
-
 }

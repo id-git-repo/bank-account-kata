@@ -1,4 +1,4 @@
-package org.entretien.kata;
+package org.entretien.kata.transactions;
 
 public enum TransactionType {
     DEPOSIT_MONEY("Deposit money"),
