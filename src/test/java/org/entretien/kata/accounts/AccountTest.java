@@ -1,6 +1,5 @@
 package org.entretien.kata.accounts;
 
-import org.entretien.kata.accounts.Account;
 import org.entretien.kata.accounts.amounts.Balance;
 import org.entretien.kata.accounts.amounts.Money;
 import org.entretien.kata.accounts.exceptions.AmountNotAllowedException;
